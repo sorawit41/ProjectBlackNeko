@@ -1,11 +1,16 @@
-import './App.css';
+import React from 'react';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      {/* เนื้อหาอื่นๆ ของคุณ */}
+      <Hero />
+      <Features />
+      <Footer />
     </div>
   );
 }
