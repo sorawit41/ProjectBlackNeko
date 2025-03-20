@@ -22,3 +22,53 @@
   text-decoration: none;
   color: #333;
 }
+.cookie-icon-container {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 9999;
+}
+
+.cookie-icon-button {
+  background-color: black; /* สีพื้นหลังดำ */
+  color: white;
+  width: 20px; /* กำหนดขนาดไอคอน */
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cookie-icon-button:hover {
+  background-color: #333;
+}
+
+.cookie-icon {
+  font-size: 12px; /* ลดขนาดไอคอน */
+}
+
+.cookie-details {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+}
+
+.cookie-accept-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cookie-accept-button:hover {
+  background-color: #0056b3;
+}
