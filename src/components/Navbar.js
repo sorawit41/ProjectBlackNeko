@@ -38,41 +38,12 @@ function Navbar({ appName }) {
               className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
             >
               <a
-                href="#news-events" // เปลี่ยน href เป็น #news-events
+                href="#events" // แก้ไขตรงนี้
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 News / Events
               </a>
-              <a
-                href="/cast"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                Cast
-              </a>
-              <a
-                href="/vip"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                VIP
-              </a>
-              <a
-                href="/media"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                Media
-              </a>
-              <a
-                href="/access"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                Access
-              </a>
-              <a
-                href="/about-black-neko"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                About black Neko
-              </a>
+              
             </div>
           )}
         </div>
