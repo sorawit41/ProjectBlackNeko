@@ -1,23 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const nextImageIndex = useRef(1);
   const images = [
     '/image3.png',
     '/image2.png',
+    '/image.png',
     // เพิ่ม path ของรูปภาพอื่นๆ ที่ต้องการ
   ];
 
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      startTransition((currentImageIndex + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [currentImageIndex, images.length]);
+
+  const startTransition = (index) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    nextImageIndex.current = index;
+
+    setTimeout(() => {
+      setCurrentImageIndex(index);
+      setIsTransitioning(false);
+    }, 1000); // ระยะเวลา transition
+  };
 
   const handleImageClick = (index) => {
-    setCurrentImageIndex(index);
+    if (currentImageIndex !== index) {
+      startTransition(index);
+    }
   };
 
   return (
@@ -29,7 +46,23 @@ function Hero() {
           backgroundPosition: 'center',
           width: '100%',
           height: '100vh',
-          transition: 'background-image 1s ease-in-out',
+          transition: 'opacity 1s ease-in-out',
+          opacity: isTransitioning && currentImageIndex !== nextImageIndex.current ? 0 : 1,
+        }}
+      ></div>
+
+      <div
+        style={{
+          backgroundImage: `url(${images[nextImageIndex.current]})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: '100%',
+          height: '100vh',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          transition: 'opacity 1s ease-in-out',
+          opacity: isTransitioning && currentImageIndex !== nextImageIndex.current ? 1 : 0,
         }}
       ></div>
 
